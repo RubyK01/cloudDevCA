@@ -4,14 +4,19 @@
     <%= todo.title %>
   </p>
 
-  <p>
+  <%# <p>
     <strong>Completed:</strong>
     <%= todo.completed %>
-  </p>
+  <%# </p> %>
 
   <p>
     <strong>Started At:</strong>
-    <%= todo.startDate%>
+    <%= todo.startDate.nil? ? 'N/A' : todo.startDate %>
+  </p>
+
+  <p>
+    <strong>Completed At:</strong>
+    <%= todo.completedDate.nil? ? 'N/A' : todo.completedDate %>
   </p>
 
 </div>

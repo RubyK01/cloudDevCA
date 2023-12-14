@@ -59,6 +59,19 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # https://www.youtube.com/watch?v=c1I0faAu-6k
+  # https://akladyous.medium.com/ruby-on-rails-action-mailer-configuration-6d0cfc00b871
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'rubykehoe4@gmail.com',
+    password: 'nfsr kxdu bkbr xirk ',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

@@ -38,6 +38,16 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+  
+        if @todo.completed
+          @todo.completedDate = Date.today.to_s
+          # @todo.send_completion_notification
+          @todo.save
+        end
+  
+        # Call the instance method on the @todo instance
+        @todo.send_completion_notification
+  
         format.html { redirect_to todo_url(@todo), notice: "Todo was successfully updated!" }
         format.json { render :show, status: :ok, location: @todo }
       else
@@ -46,6 +56,7 @@ class TodosController < ApplicationController
       end
     end
   end
+  
 
   # DELETE /todos/1 or /todos/1.json
   def destroy
