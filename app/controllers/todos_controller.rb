@@ -41,7 +41,6 @@ class TodosController < ApplicationController
   
         if @todo.completed
           @todo.completedDate = Date.today.to_s
-          # @todo.send_completion_notification
           @todo.save
         end
   
