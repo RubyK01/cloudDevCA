@@ -30,7 +30,11 @@
   }
 
   #showCard{
-    margin-left: 20px;
+    margin-left: 70px;
+  }
+
+  #page-type{
+    margin-left: 70px;
   }
 /* Style for the container div */
 #todos {
@@ -51,9 +55,14 @@
     color: #b992dd;
   }
 
-  #submit-button{
+  .submit-button{
     background-color: lime;
     color: white;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .submit-button:hover {
+    background-color: darkgreen;
   }
   
   @media (max-width: 768px) {

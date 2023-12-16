@@ -20,12 +20,14 @@
     </div>
   </nav>
 
-<h1>New todo</h1>
+<h1 id = "page-type">New todo</h1>
 
-<%= render "form", todo: @todo %>
-
+<div id="showCard">
+  <div class="card mb-3" style="width: 18rem; margin-bottom: 20px;">
+  <div class="card-body">
+    <p class="card-text">
+      <%= render "form", todo: @todo %>
+    </p>
+</div>
 <br>
 
-<div>
-  <%= link_to "Back to todos", todos_path %>
-</div>
