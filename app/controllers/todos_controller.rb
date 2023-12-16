@@ -22,6 +22,7 @@ class TodosController < ApplicationController
   # POST /todos or /todos.json
   def create
     @todo = Todo.new(todo_params)
+    #set the start date to todays date in yyyy/mm/dd format
     @todo.startDate = Date.today.to_s
     respond_to do |format|
       if @todo.save
@@ -40,11 +41,14 @@ class TodosController < ApplicationController
       if @todo.update(todo_params)
 
         if @todo.completed
+          # if completed is set to true in an update operation
+          # the completedDate variable is given a string of todays date in yyyy/mm/dd format
           @todo.completedDate = Date.today.to_s
           @todo.save
         end
 
-        # Call the instance method on the @todo instance
+        # I call the send completion notification method in this instance
+        # to see if the completed field is set to true in order for an email to be sent.
         @todo.send_completion_notification
 
         format.html { redirect_to todo_url(@todo), notice: 'Todo was successfully updated!' }
