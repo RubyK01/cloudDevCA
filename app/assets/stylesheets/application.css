@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+
+ .new-todo-link {
+    color: #e5ebf1;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .new-todo-link:hover {
+    color: white; /* Change text color on hover */
+  }
+
+
+  .card-body{
+    background-color: #b992dd;
+  }
+
+  #showCard{
+    margin-left: 20px;
+  }
+/* Style for the container div */
+#todos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+  }
+
+ .nav-item {
+    padding-bottom: 15px; /* Adjust the value as needed */
+  }
+
+  .navbar{
+    background-color: rgb(161, 98, 219) !important; 
+  }
+  h1{
+    color: #b992dd;
+  }
+
+  #submit-button{
+    background-color: lime;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: row !important;
+      margin-left: 10px;
+      
+    }
+
+    .brand{
+    }
+
+    .nav-item {
+      margin-right: 10px;
+    }
+  }
+  

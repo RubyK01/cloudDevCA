@@ -4,12 +4,26 @@ require 'sendEmailOnCompletion'
 #https://guides.rubyonrails.org/active_record_callbacks.html
 #https://www.rubyguides.com/2020/04/self-in-ruby/
 class Todo < ApplicationRecord
-    after_commit :send_completion_notification, if: :completed_changed?
-    
+    # Validation: Ensure the presence of the title attribute
+    validates :title, presence: true
 
-    # previous attempt trying to get find the last updated todo
+    # Custom validation: Check that the title does not contain special characters
+    validate :title_does_not_contain_special_characters
+
+    # Callback: Trigger the send_completion_notification method after committing changes if the 'completed' attribute changed
+    after_commit :send_completion_notification, if: :completed_changed?
+
+    # Custom validation method to check if the title contains special characters
+    def title_does_not_contain_special_characters
+      # Regular expression /^[a-zA-Z0-9\s]+$/ checks if the title contains only letters (both uppercase and lowercase), numbers, and whitespace
+      unless title =~ /^[a-zA-Z0-9\s]+$/
+        # If the title contains special characters, add an error to the :title attribute
+        errors.add(:title, 'cannot contain special characters')
+      end
+    end
+
+    # previous attempt trying to find the last updated todo in db instead of just using the current instance
     # def send_completion_notification
-    #   # Use self to refer to the current instance of Todo
     #   get_completed_todo = Todo.find_by("updated_at >= ?", Date.today)
     #   TodoMailer.completion_email(get_completed_todo).deliver_now
     def send_completion_notification

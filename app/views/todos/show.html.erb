@@ -1,10 +1,38 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+              <a class="nav-link brand" href="#"><%= link_to "Todos", todos_path, class: "new-todo-link nav-link brand" %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "New todo", new_todo_path, class: "new-todo-link nav-link" %></a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link brand" href="#"><%= link_to "Back", todos_path, class: "new-todo-link nav-link brand" %></a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "Edit", edit_todo_path(@todo), class: "new-todo-link nav-link" %></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <p style="color: green"><%= notice %></p>
-
-<%= render @todo %>
-
-<div>
-  <%= link_to "Edit this todo", edit_todo_path(@todo) %> |
-  <%= link_to "Back to todos", todos_path %>
-
-  <%= button_to "Destroy this todo", @todo, method: :delete %>
+<div id="showCard">
+  <div class="card mb-3" style="width: 18rem; margin-bottom: 20px;">
+  <div class="card-body">
+    <p class="card-text">
+      <%= render @todo %>
+    </p>
+    <div>
+      <%= button_to "Delete", @todo, method: :delete, style: "color: white; text-decoration: none; background-color: red; border-color: rgba(0, 0, 0, 0.1); hover: background-color: darkred;" %>
+    </div>
+  </div>
 </div>
+

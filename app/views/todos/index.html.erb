@@ -1,14 +1,44 @@
-<p style="color: green"><%= notice %></p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-<h1>Todos</h1>
+</head>
 
-<div id="todos">
-  <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
-  <% end %>
-</div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link brand" href="#"><%= link_to "Todos", todos_path, class: "new-todo-link nav-link brand" %></a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "New todo", new_todo_path, class: "new-todo-link nav-link" %></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<%= link_to "New todo", new_todo_path %>
+
+  <br>
+  <p style="color: green"><%= notice %></p>
+  <center>
+  <h1>Stored Todos:</h1>
+  </center>
+  <br>
+  <div id="todos">
+    <% @todos.each do |todo| %>
+      <div class="card mb-3" style="width: 18rem; margin-bottom: 20px;">
+        <div class="card-body">
+          <p class="card-text">
+            <%= render todo %>
+          </p>
+          <div class="btn btn-primary">
+            <%= link_to "See", todo, class: "todo-link", style: "color: white; text-decoration: none;" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+

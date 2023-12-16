@@ -1,3 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+              <a class="nav-link brand" href="#"><%= link_to "Todos", todos_path, class: "new-todo-link nav-link brand" %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "New todo", new_todo_path, class: "new-todo-link nav-link" %></a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link brand" href="#"><%= link_to "Back", todos_path, class: "new-todo-link nav-link brand" %></a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 <h1>New todo</h1>
 
 <%= render "form", todo: @todo %>
